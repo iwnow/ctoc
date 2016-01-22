@@ -11,10 +11,11 @@ namespace Call2Collegs
 {
     public class Startup
     {
-
+        private string _settingsFileName = "settings.json";
+        
         public Startup(IApplicationEnvironment applicationEnvironment, IRuntimeEnvironment runtimeEnvironment)
         {
-            Console.WriteLine(".ctor startup");
+            Configuration = new ConfigurationBuilder().AddJsonFile(_settingsFileName).Build();
         }
 
         public IConfiguration Configuration { get; private set; }
@@ -32,7 +33,7 @@ namespace Call2Collegs
         public void ConfigureProduction(IApplicationBuilder app, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole(minLevel: LogLevel.Warning);
-            Console.WriteLine("ConfigureProduction changed");
+            Console.WriteLine(Configuration["appInfo:name"]);
 
             // StatusCode pages to gracefully handle status codes 400-599.
             //app.UseStatusCodePagesWithRedirects("~/Home/StatusCodePage");
