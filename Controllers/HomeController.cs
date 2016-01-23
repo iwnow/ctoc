@@ -16,9 +16,11 @@ namespace Call2Collegs{
         public HomeController(IDataAccessProvider dataProvider){
             this._dataProvider = dataProvider;
         }
+        
+        static long _id = 0;
         public IActionResult Index(){
             //Console.WriteLine(ViewBag.val);
-            var u = new User { Id = 0, Login = "tester", Password = "pass"};
+            var u = new User { Id = ++_id, Login = "tester", Password = "pass"};
             _dataProvider.Add(u);
             var all = _dataProvider.Get();
             return View(all);
