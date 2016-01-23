@@ -1,12 +1,16 @@
 {
     "commands": {
-        "web": "Microsoft.AspNet.Server.Kestrel"  
+        "web": "Microsoft.AspNet.Server.Kestrel",
+        "ef": "EntityFramework.Commands"
     },
+    
     "frameworks": {
         "dnxcore50": {}
     },
     "dependencies": {
-        "EntityFramework.InMemory": "7.0.0-*",
+        "EntityFramework7.Npgsql": "3.1.0-rc1-3",
+        "EntityFramework.Core": "7.0.0-rc1-final",
+        "EntityFramework.Commands": "7.0.0-rc1-final",
         "Microsoft.AspNet.Authentication.Cookies": "1.0.0-*",
         "Microsoft.AspNet.Diagnostics.Entity": "7.0.0-*",
         "Microsoft.AspNet.Identity.EntityFramework": "3.0.0-*",
@@ -24,6 +28,9 @@
         "Microsoft.Extensions.Configuration.Json": "1.0.0-*",
         "Microsoft.Extensions.Logging.Console": "1.0.0-*",
         "Microsoft.Extensions.Configuration": "1.0.0-*",
-        "Microsoft.Extensions.OptionsModel": "1.0.0-*"
+        "Microsoft.Extensions.OptionsModel": "1.0.0-*",
+         "Microsoft.CodeAnalysis.CSharp": "1.1.0-*",
+         "System.Reflection.Metadata": "1.1.1-beta-23516",
+         "System.Linq.Expressions": "4.0.11-beta-23516"
     }
 }

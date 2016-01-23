@@ -7,23 +7,25 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.PlatformAbstractions;
 
+using Call2Collegs.Services;
+
 namespace Call2Collegs
 {
     public class Startup
     {
-        private string _settingsFileName = "settings.json";
-        
         public Startup(IApplicationEnvironment applicationEnvironment, IRuntimeEnvironment runtimeEnvironment)
         {
-            Configuration = new ConfigurationBuilder().AddJsonFile(_settingsFileName).Build();
+            ConfigService.AppBasePath = applicationEnvironment.ApplicationBasePath;
         }
-
-        public IConfiguration Configuration { get; private set; }
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped(typeof(IConfigService), typeof(ConfigService));
+            services.AddScoped<IDataAccessProvider, DataAccessPostgreSqlProvider>();
             
-
+            services.AddEntityFramework()
+                    .AddNpgsql()
+                    .AddDbContext<NpgDbContext>();
             // Add MVC services to the services container
             services.AddMvc();
         }
@@ -33,12 +35,12 @@ namespace Call2Collegs
         public void ConfigureProduction(IApplicationBuilder app, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole(minLevel: LogLevel.Warning);
-            Console.WriteLine(Configuration["appInfo:name"]);
+            //Console.WriteLine(Configuration["appInfo:name"]);
 
             // StatusCode pages to gracefully handle status codes 400-599.
             //app.UseStatusCodePagesWithRedirects("~/Home/StatusCodePage");
 
-            //app.UseExceptionHandler("/Home/Error");
+            app.UseDeveloperExceptionPage();
 
             Configure(app);
         }

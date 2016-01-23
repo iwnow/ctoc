@@ -1,1 +1,11 @@
-Index
+@model List<Call2Collegs.Model.User>;
+
+<p>
+    @foreach(var u in Model){
+        <p>
+            <div>u.Login</div>
+            <div>u.Password</div>
+        </p>
+        <hr>
+    }
+</p>

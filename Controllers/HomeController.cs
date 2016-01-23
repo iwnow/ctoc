@@ -6,11 +6,22 @@ using Microsoft.AspNet.Mvc;
 using Microsoft.Data.Entity;
 using Microsoft.Extensions.Caching.Memory;
 
+using Call2Collegs.Services;
+using Call2Collegs.Model;
+
 namespace Call2Collegs{
     
     public class HomeController : Controller{
+        readonly IDataAccessProvider _dataProvider;
+        public HomeController(IDataAccessProvider dataProvider){
+            this._dataProvider = dataProvider;
+        }
         public IActionResult Index(){
-            return View();
+            //Console.WriteLine(ViewBag.val);
+            var u = new User { Id = 0, Login = "tester", Password = "pass"};
+            _dataProvider.Add(u);
+            var all = _dataProvider.Get();
+            return View(all);
         }
     }
 }
