@@ -20,7 +20,7 @@ namespace Call2Collegs.Services{
             builder.Entity<User>().HasKey(m => m.Id);
 
             // shadow properties
-            //builder.Entity<User>().Property<DateTime>("UpdatedTimestamp");
+            builder.Entity<User>().Property<DateTime>("UpdatedTimestamp");
 
             base.OnModelCreating(builder);
         }
