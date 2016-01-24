@@ -29,7 +29,7 @@ namespace Call2Collegs.Services{
         {
             var connectionString = this._configService
                 .GetValue("connectionStrings:" + this._configService.GetValue("connectionName"));
-                Console.WriteLine("connect: " + connectionString);
+                //Console.WriteLine("connect: " + connectionString);
             optionsBuilder.UseNpgsql(connectionString);
         }
 

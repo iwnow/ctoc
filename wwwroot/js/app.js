@@ -7,3 +7,8 @@ var Hello = (function () {
     return Hello;
 })();
 console.info(Hello.World());
+$(function () {
+    $("#btnPart").click((e) => {
+        $("#partial").load("Home/Partial");
+    });    
+});

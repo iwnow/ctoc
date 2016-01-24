@@ -5,3 +5,7 @@ class Hello{
 }
 
 console.info(Hello.World());
+
+$(() => {
+   console.log("Dom is loaded"); 
+});

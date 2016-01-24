@@ -20,10 +20,12 @@ namespace Call2Collegs{
         static long _id = 0;
         public IActionResult Index(){
             //Console.WriteLine(ViewBag.val);
-            var u = new User { Id = ++_id, Login = "tester", Password = "pass"};
-            _dataProvider.Add(u);
             var all = _dataProvider.Get();
             return View(all);
+        }
+        
+        public IActionResult Partial(){
+            return PartialView();
         }
     }
 }
