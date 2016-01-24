@@ -1,26 +1,9 @@
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-var cookie_1 = require("./cookie");
-$(function () {
-    $("#btnPart").click(function () {
-        var c = cookie_1.CookieManager.Get("mycookie");
-        if (!c)
-            cookie_1.CookieManager.Add("mycookie", "hello");
-        else
-            cookie_1.CookieManager.Delete("mycookie");
-    });
-});
-
-},{"./cookie":2}],2:[function(require,module,exports){
 var CookieManager = (function () {
     function CookieManager() {
     }
     CookieManager.Add = function (name, value, options) {
         options = options || {};
         var expires = options.expires;
-        if (!expires)
-            expires = 60 * 60 * 24 * 360;
-        if (!options.path)
-            options.path = "/";
         if (typeof expires == "number" && expires) {
             var d = new Date();
             d.setTime(d.getTime() + expires * 1000);
@@ -52,5 +35,3 @@ var CookieManager = (function () {
     return CookieManager;
 })();
 exports.CookieManager = CookieManager;
-
-},{}]},{},[1]);

@@ -1,11 +1,10 @@
-class Hello{
-    static World():string{
-        return "hello world";
-    }
-}
-
-console.info(Hello.World());
+import {CookieManager} from "./cookie";
 
 $(() => {
-   console.log("Dom is loaded"); 
+    $("#btnPart").click(() => {
+        var c = CookieManager.Get("mycookie");
+        if (!c)
+            CookieManager.Add("mycookie", "hello");
+        else CookieManager.Delete("mycookie");
+    });
 });

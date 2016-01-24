@@ -56,7 +56,8 @@ namespace Call2Collegs
             // Add cookie-based authentication to the request pipeline
             //app.UseIdentity();
 
-            
+            //app.UseStatusCodePagesWithReExecute("/Errors/Error{0}");
+            app.UseStatusCodePagesWithReExecute("/");
 
             // Add MVC to the request pipeline
             app.UseMvc(routes =>

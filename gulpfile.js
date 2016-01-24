@@ -1,22 +1,35 @@
 var gulp = require('gulp');
+var concat = require('gulp-concat');
+ 
+/*gulp.task('js', function() {
+  return gulp.src('./wsrc/js/*.js')
+    .pipe(concat('app.js'))
+    .pipe(gulp.dest('./wwwroot/js/'));
+});*/
 
-
-
-gulp.task('styles', function() {
-  return gulp.src('node_modules/bootstrap/dist/bootstrap.min.css')
-        .pipe(gulp.dest('wwwroot/css/'))
-        .on('error', function (err) {
-            console.log(err.toString());
-    });
+var browserify = require('browserify'),
+    //watchify = require('watchify'),
+    source = require('vinyl-source-stream'),
+    sourceFile = './wsrc/js/app.js',
+    destFolder = './wwwroot/js/',
+    destFile = 'app.js';
+ 
+gulp.task('js', function() {
+  return browserify(sourceFile)
+        .bundle()
+        .pipe(source(destFile))
+        .pipe(gulp.dest(destFolder));
 });
 
-gulp.task('scripts', function() {
-  return gulp.src('node_modules/jquery/dist/jquery.min.css')
-  .pipe(gulp.dest('wwwroot/js/'))
-  .on('error', function (err) {
-            console.log(err.toString());
-    });
-});
-
-gulp.task('default', ['styles', 'scripts'], function() {
-});
+/*gulp.task('watch', function() {
+  var bundler = watchify(sourceFile);
+  bundler.on('update', rebundle);
+ 
+  function rebundle() {
+    return bundler.bundle()
+      .pipe(source(destFile))
+      .pipe(gulp.dest(destFolder));
+  }
+ 
+  return rebundle();
+});*/
