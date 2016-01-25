@@ -20,8 +20,8 @@ namespace Call2Collegs{
         static long _id = 0;
         public IActionResult Index(){
             //Console.WriteLine(ViewBag.val);
-            var all = _dataProvider.Get();
-            return View(all);
+            //var all = _dataProvider.Get();
+            return View();
         }
         
         public IActionResult Partial(){
