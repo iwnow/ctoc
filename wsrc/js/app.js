@@ -1,10 +1,8 @@
 var cookie_1 = require("./cookie");
+var navbar_1 = require("./navbar");
 $(function () {
-    $("#btnPart").click(function () {
-        var c = cookie_1.CookieManager.Get("mycookie");
-        if (!c)
-            cookie_1.CookieManager.Add("mycookie", "hello");
-        else
-            cookie_1.CookieManager.Delete("mycookie");
+    $("ul.nav.nav-sidebar").children().each(function (i, e) {
+        navbar_1.NavBar.addClickActive(e);
     });
+    cookie_1.CookieManager.Get("dd");
 });

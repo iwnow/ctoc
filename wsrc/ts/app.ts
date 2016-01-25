@@ -1,10 +1,10 @@
 import {CookieManager} from "./cookie";
+import {NavBar} from "./navbar";
 
 $(() => {
-    $("#btnPart").click(() => {
-        var c = CookieManager.Get("mycookie");
-        if (!c)
-            CookieManager.Add("mycookie", "hello");
-        else CookieManager.Delete("mycookie");
+    $("ul.nav.nav-sidebar").children().each((i, e) => {
+       NavBar.addClickActive(e);
     });
+    CookieManager.Get("dd");
 });
+

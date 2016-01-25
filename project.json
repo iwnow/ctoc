@@ -8,10 +8,7 @@
         "dnxcore50": {}
     },
     "scripts": {
-      "postbuild": [
-          "tsc",
-          "gulp js"
-        ]  
+      "postbuild": []  
     },
     "dependencies": {
         "EntityFramework7.Npgsql": "3.1.0-rc1-3",

@@ -1,16 +1,14 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var cookie_1 = require("./cookie");
+var navbar_1 = require("./navbar");
 $(function () {
-    $("#btnPart").click(function () {
-        var c = cookie_1.CookieManager.Get("mycookie");
-        if (!c)
-            cookie_1.CookieManager.Add("mycookie", "hello");
-        else
-            cookie_1.CookieManager.Delete("mycookie");
+    $("ul.nav.nav-sidebar").children().each(function (i, e) {
+        navbar_1.NavBar.addClickActive(e);
     });
+    cookie_1.CookieManager.Get("dd");
 });
 
-},{"./cookie":2}],2:[function(require,module,exports){
+},{"./cookie":2,"./navbar":3}],2:[function(require,module,exports){
 var CookieManager = (function () {
     function CookieManager() {
     }
@@ -52,5 +50,22 @@ var CookieManager = (function () {
     return CookieManager;
 })();
 exports.CookieManager = CookieManager;
+
+},{}],3:[function(require,module,exports){
+var NavBar = (function () {
+    function NavBar() {
+    }
+    NavBar.addClickActive = function (e) {
+        e.addEventListener('click', function () {
+            $.each(e.parentElement.children, function (i, el) {
+                var current = el;
+                current.classList.remove('active');
+            });
+            e.classList.add('active');
+        });
+    };
+    return NavBar;
+})();
+exports.NavBar = NavBar;
 
 },{}]},{},[1]);
