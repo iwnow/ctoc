@@ -13,6 +13,7 @@
     <![endif]-->
 </head>
 <body>
+    <div id="contentWin">
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -22,7 +23,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>-->
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand" href="#">C2C</a>
         </div>
         <!--<div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -42,79 +43,24 @@
       <div class="row">
           
         <div class="col-sm-3 col-md-2 sidebar">
-            <!--<div class="panel-heading">
-                <h4 class="panel-title">
-                    <a data-toggle="collapse" href="#collapseMenu">Collapsible list group</a>
-                </h4>
-            </div>-->
-            <div class="nav nav-sidebar " >
-                    <!--<li class="active">
-                        <a class="active" data-toggle="collapse" href="#collapseMenu">Overview</a>
-                    </li>-->
-                    <a class="active" data-toggle="collapse" href="#collapseMenu">Overview</a>
-            </div>    
+            <ul class="nav nav-sidebar " id="collapseMenyHead">
+                    <li class="active" >
+                        <a class="active" data-toggle="collapse" href="#collapseMenu">Menu</a>
+                    </li>
+            </ul>    
                 
             <ul class="nav nav-sidebar collapse in" id="collapseMenu">
-                    <li class="active"><a href="#">Overview</a></li>
-                    <li><a href="#">Reports</a></li>
-                    <li><a href="#">Analytics</a></li>
-                    <li><a href="#">Export</a></li>
+                    <li class="active"><a href="">Overview</a></li>
+                    <li><a href="">Reports</a></li>
             </ul>    
                             
         </div>
         
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">Dashboard</h1>
-
-          <div class="row placeholders">
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-          </div>
-
-          <h2 class="sub-header">Section title</h2>
-          <div class="table-responsive">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1,001</td>
-                  <td>Lorem</td>
-                  <td>ipsum</td>
-                  <td>dolor</td>
-                  <td>sit</td>
-                </tr>
-                
-              </tbody>
-            </table>
-          </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="dataContainer">
+          
         </div>
       </div>
+    </div>
     </div>
 </body>
 <script src="js/jquery.js"></script>

@@ -27,15 +27,9 @@ gulp.task('js', ['ts'], function() {
 
 gulp.task('default', ['js']);
 
-/*gulp.task('watch', function() {
-  var bundler = watchify(sourceFile);
-  bundler.on('update', rebundle);
- 
-  function rebundle() {
-    return bundler.bundle()
-      .pipe(source(destFile))
-      .pipe(gulp.dest(destFolder));
-  }
- 
-  return rebundle();
-});*/
+gulp.task('watch', function(){
+   var watcher = gulp.watch('wsrc/ts/*.ts', ['js']);
+    watcher.on('change', function(event) {
+    console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
+    }); 
+});
